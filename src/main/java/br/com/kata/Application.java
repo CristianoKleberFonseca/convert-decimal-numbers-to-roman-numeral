@@ -15,7 +15,7 @@ public class Application {
 		System.out.println("MENU: ");
 		System.out.println("      1- ROMAN NUMERAL TO DECIMAL NUMBER");
 		System.out.println("      2- DECIMAL NUMBER TO ROMAN NUMBER");
-		System.out.println("      3-EXIT");
+		System.out.println("      3- EXIT");
 		System.out.println("Selection: ");
 	}
 
