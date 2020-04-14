@@ -74,12 +74,12 @@ public class ApplicationTest {
 	}
 	
 	@Test
-	public void testValueExceedExpectedException() {
+	public void testDecimalValueExceedExpectedException() {
 		ConverterController convertOrdinalToRomanController = ConverterController.getInstance();
 		
 		expectedException.expect(ValueExceedException.class);
-		expectedException.expectMessage(String.format(MessagesExceptions.VALUE_EXCEEDED, 3901));
-		convertOrdinalToRomanController.convertDecimalToRomanNumeral("3901");
+		expectedException.expectMessage(String.format(MessagesExceptions.VALUE_EXCEEDED, 4000));
+		convertOrdinalToRomanController.convertDecimalToRomanNumeral("4000");
 	}
 
 	@Test
@@ -115,11 +115,20 @@ public class ApplicationTest {
 	}
 	
 	@Test
+	public void testRomanValueExceedException() {
+		ConverterController convertOrdinalToRomanController = ConverterController.getInstance();
+		
+		expectedException.expect(ValueNotPermittedException.class);
+		expectedException.expectMessage(String.format(MessagesExceptions.ROMAN_NUMERAL_IS_NOT_VALID, "MMMMCMXCIX"));
+		convertOrdinalToRomanController.convertRomanNumeralToDecimal("MMMMCMXCIX");
+	}
+	
+	@Test
 	public void testValueNotValidExpectedException() {
 		ConverterController convertOrdinalToRomanController = ConverterController.getInstance();
 		
 		expectedException.expect(ValueNotPermittedException.class);
-		expectedException.expectMessage(String.format(MessagesExceptions.VALUE_IS_NOT_VALID, "xIV"));
+		expectedException.expectMessage(String.format(MessagesExceptions.ROMAN_NUMERAL_IS_NOT_VALID, "xIV"));
 		convertOrdinalToRomanController.convertRomanNumeralToDecimal("xIV");
 	}
 }
