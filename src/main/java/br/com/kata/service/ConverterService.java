@@ -28,7 +28,7 @@ public class ConverterService {
 			throw new ValueNotPermittedException(MessagesExceptions.VALUE_ZERO_IS_NOT_VALID);
 		} else {
 			int decimalNumberConverted = Integer.valueOf(decimalNumber);
-			if(decimalNumberConverted > 3900) {
+			if(decimalNumberConverted > 3999) {
 				throw new ValueExceedException(String.format(MessagesExceptions.VALUE_EXCEEDED, decimalNumberConverted));
 			}
 			this.romanNumeralReturn = "";
@@ -42,9 +42,8 @@ public class ConverterService {
 		
 		if (romanNumeral == null || "".equals(romanNumeral)) {
 			throw new ValueNotPermittedException(MessagesExceptions.ROMAN_NUMERAL_DOES_NOT_INFORMED);
-		} else if (!romanNumeral.matches("^[CDILMXV\\s]+$")) {
-			throw new ValueNotPermittedException(String.format(MessagesExceptions.VALUE_IS_NOT_VALID, romanNumeral));
-			
+		} else if (!romanNumeral.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$")) {
+			throw new ValueNotPermittedException(String.format(MessagesExceptions.ROMAN_NUMERAL_IS_NOT_VALID, romanNumeral));
 		} else {
 			this.decimalNumberReturn = 0;
 			decimalNumberReturn = this.buildDecimalNumber(romanNumeral, 0);
