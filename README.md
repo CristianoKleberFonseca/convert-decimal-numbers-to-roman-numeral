@@ -16,8 +16,8 @@ Esta aplicação irá rodar no shell e após ser executada irá exibir um menu c
 ### Rodando a Aplicação
 ````
 1. Vá até a pasta raiz da aplicação.
-2. Rode o comando mvn clean package para gerar o pacote da aplicação.
-3. java -jar ./target/convert-decimal-numbers-to-roman-numeral-v1.0.0.jar
+2. Executar o comando mvn clean package para gerar o pacote da aplicação.
+3. Executar o comando java -jar ./target/convert-decimal-numbers-to-roman-numeral-v1.0.0.jar para executar a aplicação.
 ```
 
 ### Rodando os Testes
